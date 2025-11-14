@@ -1,0 +1,152 @@
+:root{
+  --bg:#000;
+  --gold:#ffd700;
+  --pink:#ff6fa3;
+  --violet:#9b5cf6;
+  --blue:#60a5fa;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 16px;
+  --maxW: 980px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Reset + body */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow:hidden;
+}
+
+/* Full page container */
+.page{
+  min-height:100vh;
+  padding:2rem;
+}
+
+/* Card */
+.panel{
+  width:100%;
+  max-width:var(--maxW);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:var(--radius);
+  box-shadow: 0 18px 60px rgba(2,6,23,0.75), 0 6px 28px rgba(96,125,255,0.03);
+  border: 1px solid rgba(255,215,0,0.04);
+}
+
+/* Header */
+.brand-dot{
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:linear-gradient(135deg,var(--pink),var(--violet));
+  box-shadow: 0 8px 28px rgba(155,92,246,0.18), 0 0 18px rgba(255,111,163,0.06);
+  font-size:22px;
+}
+.brand-title{
+  font-weight:700;
+  letter-spacing:.6px;
+  margin:0;
+  color:#fff;
+  text-shadow: 0 6px 22px rgba(96,165,250,0.06);
+}
+
+/* Stage layout */
+.stage{
+  padding:1.4rem 0 0.8rem;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1rem;
+}
+
+/* Planet */
+.planet{
+  position:relative;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  transition: transform .25s cubic-bezier(.2,.9,.3,1), box-shadow .25s;
+  z-index:5;
+  user-select:none;
+  transform-origin:center;
+  background: radial-gradient(circle at 30% 30%, #ffd, #ffdfb6 6%, #f7b6d7 30%, #a07cff 65%, #4f7bff 100%);
+  box-shadow: 0 30px 70px rgba(2,6,23,0.7), inset 0 6px 18px rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Core emoji */
+.core{
+  font-size:46px;
+  filter: drop-shadow(0 10px 24px rgba(0,0,0,0.5));
+  transform: translateY(-4px);
+}
+
+/* Ring (golden orbit) */
+.ring{
+  position:absolute;
+  inset: -26px;
+  border-radius:50%;
+  border: 3px solid rgba(255,215,0,0.12);
+  box-shadow: 0 0 26px rgba(255,215,0,0.06), inset 0 4px 12px rgba(255,255,255,0.02);
+  pointer-events:none;
+  transform: rotate(20deg);
+  animation: ring-rotate 16s linear infinite;
+}
+
+/* subtle idle floating */
+.planet:active,
+.planet:focus{ outline:none; transform: scale(1.06) }
+
+@keyframes ring-rotate { from{ transform: rotate(0deg)} to{ transform: rotate(360deg)} }
+
+/* Message style (visible, centered under planet) */
+.message{
+  position:relative;
+  margin-top: .6rem;
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0.45rem 1rem;
+  border-radius:12px;
+  color:#0b0b0b;
+  font-weight:700;
+  font-size:1.15rem;
+  background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(255,255,255,0.92));
+  box-shadow: 0 18px 40px rgba(2,6,23,0.6), 0 0 26px rgba(255,215,0,0.06);
+  z-index:6;
+  transform-origin:center;
+  transition: transform .22s ease;
+  pointer-events:none;
+}
+
+/* Small responsive tweaks */
+@media (max-width:720px){
+  .planet{ width:160px; height:160px }
+  .core{ font-size:36px }
+  .message{ font-size:1rem; padding:0.4rem .8rem }
+  .panel{ padding:1rem }
+}
+
+/* Page glows */
+.page::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(400px 200px at 12% 12%, rgba(155,92,246,0.06), transparent 10%),
+    radial-gradient(300px 140px at 88% 86%, rgba(255,111,163,0.05), transparent 12%),
+    linear-gradient(180deg, rgba(255,215,0,0.02), transparent 40%);
+  z-index:1;
+  mix-blend-mode: screen;
+}

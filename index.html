@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Planeta de Amor ✨</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Canvas de estrellas -->
+  <canvas id="stars" aria-hidden="true"></canvas>
+
+  <!-- Contenedor principal -->
+  <main class="page container-fluid d-flex align-items-center justify-content-center">
+    <section class="card panel p-4">
+      <header class="d-flex align-items-center gap-3 mb-3">
+        <div class="brand-dot">💫</div>
+        <div>
+          <h1 class="brand-title mb-0">"𝗣𝗹𝗮𝗻𝗲𝘁𝗮 𝗱𝗲 𝗔𝗺𝗼𝗿"</h1>
+          <small class="text-muted">Toca el planeta para recibir apodos y frases bonitas</small>
+        </div>
+      </header>
+
+      <div class="stage d-flex flex-column align-items-center">
+        <!-- Planeta con anillo -->
+        <div id="planet" class="planet" role="button" tabindex="0" aria-label="ᴛᴏᴄᴀ ᴇʟ ᴘʟᴀɴᴇᴛᴀ ᴘᴀʀᴀ ʀᴇᴄɪʙɪʀ ᴀᴘᴏᴅᴏꜱ ʏ ꜰʀᴀꜱᴇꜱ ʙᴏɴɪᴛᴀꜱ.">
+         <h1> <div class="core">🌍</div> </h1>
+          <div class="ring"></div>
+        </div>
+
+        <!-- Mensaje visible -->
+        <div id="message" class="message" aria-live="polite"></div>
+      </div>
+
+      <footer class="mt-4 d-flex justify-content-between align-items-center small text-muted">
+        <div>✨ Elegante • Responsive • yeye✨</div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
